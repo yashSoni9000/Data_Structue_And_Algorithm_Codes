@@ -15,8 +15,8 @@ class Solution {
         // my method || tedious
         // if (currConsFreq > maxConsFreq) maxConsFreq = currConsFreq;
 
-        // leetcoder's method || more intutive
-        maxConsFreq = Math.max(currConsFreq, maxConsFreq);
+        // not even need to do this as well as ans we will get from loop will be final
+        // maxConsFreq = Math.max(currConsFreq, maxConsFreq);
         return maxConsFreq;
     }
 }
