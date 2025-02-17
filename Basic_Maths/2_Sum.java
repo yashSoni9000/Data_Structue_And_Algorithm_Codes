@@ -4,22 +4,22 @@ class Solution {
         int n = nums.length;
 
         // naive approach with n^2 complexity
-        // naiveApproach(nums, ans, n);
+        // return naiveApproach(nums, ans, n, target);
 
         // optimal Approach
-        optimalApproach(nums, ans, n);
+        return optimalApproach(nums, ans, n, target);
     }
 
     public int[] optimalApproach(int[] nums, int[] ans, int n, int target) {
-        int i = 0, j = 1;
-        boolean isNegative = target < 0 ? true : false;
+        Map<Integer, Integer> mp = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            if (isNegative) {
-                if (nums[i] < target) {
-                    
-                }
+            int diff = target - nums[i];
+            if (mp.containsKey(diff)) {
+                return new int[] {mp.get(diff), i};
             }
+            mp.put(nums[i], i);
         }
+        return new int[]{};
     }
 
     public int[] naiveApproach(int[] nums, int[] ans, int n, int target) {
