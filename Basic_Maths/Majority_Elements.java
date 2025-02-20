@@ -1,13 +1,27 @@
-import java.util.HashMap;
-import java.util.Map;
-
-public class Solution {
+class Solution {
     public int majorityElement(int[] nums) {
         int n = nums.length;
         int half = n / 2;
         
-        return myApproach(nums, half, n);
+        // takes O(n) SC
+        // return myApproach(nums, half, n);
+
+        // takes O(1) SC with O(n) TC
+        return optimalApproach(nums ,n);
     }
+
+    public int optimalApproach(int[] nums ,int n) {
+        int count = 0, candidate = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            if (count == 0) {
+                candidate = nums[i];
+            }
+            if (candidate == nums[i]) count++;
+            else count--;
+        }
+        return candidate;
+    }
+
     public int myApproach(int[] nums, int half, int n) {
         int ans = 0;
         Map<Integer, Integer> mp = new HashMap<>();
@@ -19,7 +33,7 @@ public class Solution {
             else mp.put(nums[i], 1);
         }
         
-        for (Map.Entry entry : mp.entrySet()) {
+        for (Map.Entry<Integer, Integer> entry : mp.entrySet()) {
             int freq = (int) entry.getValue();
             if (freq > half) {
                 ans = (int) entry.getKey();
