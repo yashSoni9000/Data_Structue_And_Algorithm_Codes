@@ -10,7 +10,6 @@ class Solution {
         if (n == 0) return 0;
 
         int low = 0, high = n;
-        int ans = 0;
 
         while (low < high) {
             int mid1 = low + ((high - low) / 2);
