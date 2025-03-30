@@ -10,7 +10,6 @@ class Solution {
             return -1;
 
         int low = 1, high = 1000000000;
-        int finalAns = 0;
 
         while (low < high) {
             int mid = low + ((high - low) / 2);
