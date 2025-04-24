@@ -9,7 +9,6 @@ class Solution {
         if (s.length() <= 1) return s;
 
         String longestPalindrome = s.substring(0,1);
-        int longestPalindromeLen = longestPalindrome.length();
 
         for (int i = 0; i < s.length(); i++) {
             String odd = midStart(s, i, i); // if palindrome is odd
