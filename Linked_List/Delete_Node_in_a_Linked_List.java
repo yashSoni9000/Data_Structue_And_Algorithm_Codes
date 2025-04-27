@@ -1,3 +1,4 @@
+package Linked_List;
 class Solution {
     public void deleteNode(ListNode node) {
         // naiveApproach(node);

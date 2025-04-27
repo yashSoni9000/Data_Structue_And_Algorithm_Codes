@@ -1,5 +1,7 @@
 import java.util.*;
 
+import Linked_List.Solution;
+
 class Main {
     public static void main(String[] args) throws java.lang.Exception {
         Scanner sc = new Scanner(System.in);
