@@ -9,10 +9,32 @@
  *     }
  * }
  */
-public class Solution {
+class Solution {
     public ListNode detectCycle(ListNode head) {
         if (head == null || head.next == null) return null;
 
+        return naiveApproach(head);
+        // return optimalApproach(head);
+    }
+
+    // naive approach
+    public ListNode naiveApproach(ListNode head) {
+        Map<ListNode, Integer> mp = new HashMap<>();
+        int length = 1;
+        ListNode mover = head;
+
+        while (mover != null) {
+            if (mp.containsKey(mover)) return mover;
+
+            mp.put(mover, length++);
+            mover = mover.next;
+        }
+
+        return null;
+    }
+
+    // optimal Approach
+    public ListNode optimalApproach(ListNode head) {
         ListNode slow = head, fast = head, ans = head;
 
         while (fast != null && fast.next != null) {
