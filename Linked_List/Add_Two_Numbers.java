@@ -18,21 +18,23 @@ class Solution {
     public ListNode optimalApproach(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode();
         ListNode mover = dummy;
+
+        ListNode first = l1, second = l2;
         int carry = 0;
 
-        while (l1 != null || l2 != null || carry != 0) {
-            int x = (l1 != null) ? l1.val : 0;
-            int y = (l2 != null) ? l2.val : 0;
+        while (first != null || second != null || carry != 0) {
+            int one = (first == null) ? 0 : first.val;
+            int two = (second == null) ? 0 : second.val;
 
-            int currSum = x + y + carry;
-            carry = currSum / 10;
-            int digit = currSum % 10;
+            int sum = one + two + carry;
+            carry = sum / 10;
 
-            mover.next = new ListNode(digit);
+            ListNode temp = new ListNode(sum % 10);
+            mover.next = temp;
             mover = mover.next;
 
-            l1 = (l1 != null) ? l1.next : null;
-            l2 = (l2 != null) ? l2.next : null;
+            first = (first != null) ? first.next : null;
+            second = (second != null) ? second.next : null;
         }
 
         return dummy.next;
