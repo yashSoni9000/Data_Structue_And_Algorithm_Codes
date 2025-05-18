@@ -19,45 +19,44 @@ class Solution {
     }
 
     public ListNode optimalApproach(ListNode head) {
-        if (head.next == null) return head;
+        if (head.next == null)
+            return head;
 
-        ListNode walker = head, runner = head, ahead = head;
+        ListNode walker = head, runner = head;
+
         while (runner.next != null && runner.next.next != null) {
             walker = walker.next;
             runner = runner.next.next;
         }
+        ListNode body = walker.next;
+        walker.next = null;
 
-        ahead = walker;
-        walker = walker.next;
-        ahead.next = null;
+        ListNode first = optimalApproach(head);
+        ListNode last = optimalApproach(body);
 
-        ListNode left = optimalApproach(head);
-        ListNode right = optimalApproach(walker);
-
-        return merge(left, right);
+        return merge(first, last);
     }
 
     // merger sort function
     private ListNode merge(ListNode l1, ListNode l2) {
-       ListNode dummy = new ListNode();
-       ListNode current = dummy;
+        ListNode dummy = new ListNode();
+        ListNode mover = dummy;
 
-       while (l1 != null && l2 != null) {
-        if (l1.val <= l2.val) {
-            current.next = l1;
-            l1 = l1.next;
+        while (l1 != null || l2 != null) {
+            int first = (l1 != null) ? l1.val : Integer.MAX_VALUE;
+            int second = (l2 != null) ? l2.val : Integer.MAX_VALUE;
+            if (first <= second) {
+                mover.next = l1;
+                l1 = l1.next;
+                mover = mover.next;
+            } else {
+                mover.next = l2;
+                l2 = l2.next;
+                mover = mover.next;
+            }
+
         }
-        else {
-            current.next = l2;
-            l2 = l2.next;
-        }
-        current = current.next;
-       }
-
-       if (l1 != null) current.next = l1;
-       if (l2 != null) current.next = l2;
-
-       return dummy.next;
+        return dummy.next;
     }
 
     // naive approach
