@@ -10,42 +10,46 @@
  */
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
-        ListNode start = head, ahead = head;
-        ListNode end = new ListNode();
-        end.next = head;
-        ListNode prev = end;
+        if (head == null || head.next == null || k <= 1) return head;
 
-        while (ahead != null) {
-            for (int i = 0; i < k; i++) {
-                if (end.next == null) return head;
-                end = end.next;
-            }
-            start = ahead;
-            ahead = end.next;
-            end.next = null;
-            ListNode temp = reverseLinkedList(start);
-            if (start == head) head = temp;
-            end = start;
-            start = temp;
-            end.next = ahead;
-            prev.next = start;
-            prev = end;
+        ListNode dummy = new ListNode(0, head);
+        ListNode prevGroup = dummy;
+
+        while (head != null) {
+            // Check if there are k nodes to reverse
+            ListNode kth = getKthNode(head, k);
+            if (kth == null) break; // Less than k nodes, no reversal
+
+            ListNode nextGroup = kth.next;
+            kth.next = null; // Disconnect the kth node
+            ListNode reversedHead = reverseLL(head); // Reverse the group
+            prevGroup.next = reversedHead; // Connect previous group to reversed head
+            head.next = nextGroup; // Connect end of reversed group to next group
+            prevGroup = head; // Update prevGroup to the end of current reversed group
+            head = nextGroup; // Move to the next group
         }
 
-        return head;
+        return dummy.next;
     }
 
-    public ListNode reverseLinkedList(ListNode head) {
-        ListNode prev = null;
-        ListNode current = head, ahead;
+    // Helper to get the kth node from current, or null if fewer than k nodes
+    private ListNode getKthNode(ListNode curr, int k) {
+        while (curr != null && k > 1) {
+            curr = curr.next;
+            k--;
+        }
+        return curr;
+    }
 
+    // Helper to reverse a linked list
+    public ListNode reverseLL(ListNode head) {
+        ListNode prev = null, current = head;
         while (current != null) {
-            ahead = current.next;
+            ListNode next = current.next;
             current.next = prev;
             prev = current;
-            current = ahead;
+            current = next;
         }
-
         return prev;
     }
 }
