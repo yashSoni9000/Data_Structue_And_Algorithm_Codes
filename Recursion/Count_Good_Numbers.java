@@ -15,6 +15,7 @@ class Solution {
         if (n % 2 == 0) {
             return half;
         }
+        
         return (half * x) % MOD;
     }
 }
