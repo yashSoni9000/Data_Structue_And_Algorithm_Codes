@@ -9,12 +9,15 @@ class Solution {
     }
 
     public void helper(List<List<Integer>> ans, List<Integer> temp, int[] nums, int start) {
-        ans.add(new ArrayList<>(temp));
-
-        for (int i = start; i < nums.length; i++) {
-            temp.add(nums[i]);
-            helper(ans, temp, nums, i + 1);
-            temp.remove(temp.size() - 1);
+        if (start == nums.length){
+            ans.add(new ArrayList<>(temp));
+            return;
         }
+
+        temp.add(nums[start]);
+        helper(ans, temp, nums, start + 1);
+        temp.remove(temp.size() - 1);
+
+        helper(ans, temp, nums, start + 1);
     }
 }
