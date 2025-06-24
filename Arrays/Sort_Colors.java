@@ -19,10 +19,11 @@ class Solution {
 
     public void optimalSolution(int[] nums) {
         int low = 0, mid = 0, high = nums.length - 1;
-
+        if (high == 0) return;
+                
         while (mid <= high) {
             if (nums[mid] == 0) swap(low++, mid++, nums);
-            else if (nums[mid] == 2) swap(mid, high--, nums);
+            else if(nums[mid] == 2) swap(mid, high--, nums);
             else mid++;
         }
     }
