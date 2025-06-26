@@ -1,6 +1,8 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        return subOptimalSolution(nums);
+        // return subOptimalSolution(nums);
+
+        return optimalSolution(nums);
     }
 
     public int subOptimalSolution(int[] nums) {
@@ -21,6 +23,17 @@ class Solution {
             }
         }
 
+        return ans;
+    }
+
+    public int optimalSolution(int[] nums) {
+        int ans = nums[0];
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (count == 0) ans = nums[i];
+            if (nums[i] == ans) count++;
+            else count--;
+        }
         return ans;
     }
 }
