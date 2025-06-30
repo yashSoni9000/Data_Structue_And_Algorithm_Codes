@@ -11,15 +11,13 @@ class Solution {
 
         // return ans;
 
-
-        long sum = 0, max = Integer.MIN_VALUE;
+        long sum = 0, maxSum = Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
-            if (sum > max) max = sum;
-
+            sum = nums[i] + sum;
+            maxSum = Math.max(maxSum, sum);
             if (sum < 0) sum = 0;
         }
 
-        return (int)max;
+        return (int) maxSum;
     }
 }
