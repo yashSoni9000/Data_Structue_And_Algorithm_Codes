@@ -27,6 +27,7 @@ class Solution {
         
         if ( arr[mid] == k) return true;
         else if (arr[mid] < k) return binarySearch(arr, mid + 1, high, k);
+        
         else return binarySearch(arr, low, mid - 1, k);
     }
 }
