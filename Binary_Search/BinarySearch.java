@@ -25,6 +25,7 @@ class Solution {
             
         int mid = low + (high - low) / 2;
         
+        
         if ( arr[mid] == k) return true;
         else if (arr[mid] < k) return binarySearch(arr, mid + 1, high, k);
         
