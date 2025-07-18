@@ -55,6 +55,7 @@ class Solution {
             mp.put(num, count + 1);
         }
 
+
         for (Map.Entry ele : mp.entrySet()) {
             int freq = (int) ele.getValue();
             if (freq > major) {
