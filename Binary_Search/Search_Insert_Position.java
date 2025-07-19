@@ -10,5 +10,6 @@ class Solution {
 
         if (nums[low] >= target) return low;
         else return low + 1;
+        
     }
 }
