@@ -26,7 +26,6 @@ class Solution {
         }
  
         if (nums[high] == target) first = high;
-
         return new int[]{first, last};
     }
 }
