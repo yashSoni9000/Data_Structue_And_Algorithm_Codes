@@ -47,6 +47,7 @@ class Solution {
                 else low = mid + 1;
             }
             else if (nums[low] == nums[mid]) low++;
+            
             else {
                 if (nums[mid] < target && nums[high] >= target) low = mid + 1;
                 else high = mid - 1;
