@@ -15,6 +15,7 @@ class Solution {
         low = 0;
         high = n;
 
+        
         while (low <= high) {
             int mid = low + ((high - low + 1) / 2);
             
