@@ -18,7 +18,6 @@ class Solution {
         }
 
         ans = nums[low];
-
         return ans;
     }
 
