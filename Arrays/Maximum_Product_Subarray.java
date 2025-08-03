@@ -38,7 +38,6 @@ class Solution {
 
             ans = Math.max(ans, iMax);
         }
-
         return ans;
     }
 }
