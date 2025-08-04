@@ -14,7 +14,6 @@ class Solution {
             if (sum <= threshold) high = ans = mid;
             else low = mid + 1;
         }
-
         return ans;
     }
 }
