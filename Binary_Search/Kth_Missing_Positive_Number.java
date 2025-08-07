@@ -50,6 +50,7 @@ class Solution {
         }
         while (missingNumber.size() <= k) missingNumber.add(current++);
 
+        
         return missingNumber.get(k - 1);
     }
 }
