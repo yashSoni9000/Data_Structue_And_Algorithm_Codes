@@ -45,8 +45,7 @@ class Solution {
 
         while (!stack.isEmpty()) {
             ans.append(stack.pop());
-            if (!stack.isEmpty())
-                ans.append(" ");
+            if (!stack.isEmpty()) ans.append(" ");
         }
 
         return ans.toString();
