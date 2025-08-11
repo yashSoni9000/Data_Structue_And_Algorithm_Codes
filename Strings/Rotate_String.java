@@ -6,5 +6,6 @@ class Solution {
         if (combinedString.contains(goal)) return true;
         
         return false;
+        
     }
 }
