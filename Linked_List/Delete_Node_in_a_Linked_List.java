@@ -23,6 +23,5 @@ class Solution {
         }
         mover.val = nextData.val;
         mover.next = null;
-        
     }
 }
