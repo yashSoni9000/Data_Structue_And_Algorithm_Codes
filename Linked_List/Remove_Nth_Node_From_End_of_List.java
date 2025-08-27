@@ -25,5 +25,6 @@ class Solution {
         remover.next = remover.next.next;
 
         return head;
+        
     }
 }
