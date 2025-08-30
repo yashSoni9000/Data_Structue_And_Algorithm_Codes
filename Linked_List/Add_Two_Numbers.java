@@ -92,5 +92,6 @@ class Solution {
     public int checkCarry(int currSum) {
         // if((currSum % 100) != (currSum % 10)) return currSum / 10;
         return currSum / 10;
+        
     }
 }
