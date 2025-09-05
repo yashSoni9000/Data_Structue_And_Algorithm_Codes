@@ -15,5 +15,6 @@ class Solution {
 
         if (n % 2 == 0) return pow(x * x, n / 2);
         return x * pow(x * x, n / 2);
+        
     }
 }
