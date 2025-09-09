@@ -51,6 +51,7 @@ class MyStack {
     public boolean empty() {
         return (count > 0) ? false : true;
     }
+    
 }
 
 /**
