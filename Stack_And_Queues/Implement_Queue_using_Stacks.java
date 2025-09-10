@@ -36,6 +36,7 @@ class MyQueue {
     
     public boolean empty() {
         return st1.empty() && st2.empty();
+        
     }
 }
 
