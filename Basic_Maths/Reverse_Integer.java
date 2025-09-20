@@ -8,5 +8,6 @@ class Solution {
             num /= 10;
         }
         return (x > 0) ? count : (-count);
+        
     }
 }
