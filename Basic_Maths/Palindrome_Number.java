@@ -18,6 +18,8 @@ class Solution {
         while (x > reversedHalf) {
             reversedHalf = reversedHalf * 10 + x % 10;
             x /= 10;
-        }return x == reversedHalf || x == reversedHalf / 10;
+        }
+        
+        return x == reversedHalf || x == reversedHalf / 10;
     }
 }
