@@ -8,5 +8,6 @@ class Solution {
             curr = Math.max(curr, max);
         }
         return curr;
+        
     }
 }
