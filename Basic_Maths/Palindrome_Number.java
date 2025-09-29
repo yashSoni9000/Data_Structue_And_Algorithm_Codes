@@ -21,5 +21,6 @@ class Solution {
         }
         
         return x == reversedHalf || x == reversedHalf / 10;
+        
     }
 }
